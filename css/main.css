@@ -1,0 +1,173 @@
+.container {
+  max-width: 1440px;
+  padding: 0 80px;
+  margin: 0 auto;
+}
+
+.box__container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding-top: 50px;
+}
+
+.box {
+  width: 350px;
+  margin-bottom: 20px;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+.box__poster {
+  display: block;
+  width: 350px;
+  border-radius: 8px 8px 0 0;
+}
+
+.box__title {
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  width: 300px;
+}
+
+.box__language {
+  margin: 0;
+  padding: 0;
+}
+
+.box__rating {
+  margin: 0;
+  padding: 0;
+}
+
+.box__two {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.form {
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  width: 200px;
+  padding: 10px 15px;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #006aaf;
+}
+
+.search__btn {
+  width: 50px;
+  height: 38px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  background-image: url(../img/search.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #006aaf;
+}
+
+@media only screen and (max-width: 1300px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .box__container {
+    grid-template-columns: auto auto;
+  }
+
+  .box {
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .box__poster {
+    width: 450px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .box {
+    width: 400px;
+  }
+
+  .box__poster {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 890px) {
+  .box__container {
+    padding-top: 25px;
+  }
+
+  .box {
+    width: 350px;
+  }
+
+  .box__poster {
+    width: 350px;
+  }
+
+  .form {
+    padding-top: 25px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .box {
+    width: 300px;
+  }
+
+  .box__poster {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .box__container {
+    grid-template-columns: auto;
+  }
+
+  .box {
+    width: 400px;
+  }
+
+  .box__poster {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  .box {
+    width: 300px;
+  }
+
+  .box__poster {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .search {
+    width: 150px;
+  }
+}
