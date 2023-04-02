@@ -74,9 +74,7 @@ async function fetchData() {
   }
 }
 
-setTimeout(() => {
-  fetchData();
-}, 400000);
+fetchData();
 
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
