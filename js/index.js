@@ -1,11 +1,19 @@
-const box = document.querySelector(".box__container");
-
 const imageUrl = "https://image.tmdb.org/t/p/w500";
 let url =
   "https://api.themoviedb.org/3/discover/movie?api_key=3e2aed1f077fcc9b58ac1f7add9113d3";
 
 const searchUrl =
   "https://api.themoviedb.org/3/search/movie?api_key=3e2aed1f077fcc9b58ac1f7add9113d3&query=";
+
+const box = document.querySelector(".box__container");
+const loaderContainer = document.querySelector(".loader__container");
+const loading = document.createElement("div");
+loading.classList.add("loader");
+const loadingText = document.createElement("p");
+loadingText.textContent = `Loading...`;
+
+loaderContainer.appendChild(loading);
+loaderContainer.appendChild(loadingText);
 
 const search = document.querySelector(".search");
 const searchBtn = document.querySelector(".search__btn");
@@ -66,7 +74,9 @@ async function fetchData() {
   }
 }
 
-fetchData();
+setTimeout(() => {
+  fetchData();
+}, 400000);
 
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
