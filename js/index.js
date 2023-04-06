@@ -5,6 +5,8 @@ let url =
 const searchUrl =
   "https://api.themoviedb.org/3/search/movie?api_key=3e2aed1f077fcc9b58ac1f7add9113d3&query=";
 
+let pages = 1;
+
 const box = document.querySelector(".box__container");
 const loaderContainer = document.querySelector(".loader__container");
 const loading = document.createElement("div");
@@ -24,20 +26,18 @@ async function fetchData() {
   if (searchTerm) {
     url = `${searchUrl}${searchTerm}`;
   } else {
-    url =
-      "https://api.themoviedb.org/3/discover/movie?api_key=3e2aed1f077fcc9b58ac1f7add9113d3";
+    url = `https://api.themoviedb.org/3/discover/movie?api_key=3e2aed1f077fcc9b58ac1f7add9113d3&page=${pages}`;
   }
 
   try {
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data.results);
+    console.log(data);
 
+    let totalPages = data.total_pages > 10 ? 10 : data.total_pages;
     box.innerHTML = "";
 
     data.results.map((movie) => {
-      console.log(movie);
-
       const movieBox = document.createElement("div");
       movieBox.classList.add("box");
 
@@ -69,6 +69,24 @@ async function fetchData() {
       movieBox.appendChild(movieMiniBox);
       box.appendChild(movieBox);
     });
+
+    const pageWrapper = document.querySelector(".pages__wrapper");
+    pageWrapper.innerHTML = "";
+
+    if (totalPages > 1) {
+      for (let i = 1; i <= totalPages; i++) {
+        const pageButtun = document.createElement("button");
+        pageButtun.innerHTML = i;
+        if (pages === i) {
+          pageButtun.classList.add("active__page");
+        }
+        pageButtun.addEventListener("click", () => {
+          pages = i;
+          fetchData();
+        });
+        pageWrapper.appendChild(pageButtun);
+      }
+    }
   } catch (error) {
     console.log(error);
   }
